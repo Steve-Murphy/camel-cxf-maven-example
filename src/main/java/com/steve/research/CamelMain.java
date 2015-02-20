@@ -7,8 +7,6 @@ public class CamelMain {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/example-camel-context.xml");
         context.start();
         context.registerShutdownHook();
-        while (context.isRunning()) {
-            Thread.sleep(1000);
-        }
+        Thread.currentThread().join();
     }
 }
